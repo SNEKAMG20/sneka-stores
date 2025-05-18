@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sneka Stores | Coming Soon</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="split-container">
+    <!-- Left Side: Fashion Image -->
+    <div class="left-side">
+      <img src="./myphoto.jpg.png" alt="Sneka Stores " class="image" />
+    </div>
+
+    <!-- Right Side: Coming Soon Content -->
+    <div class="right-side">
+      <div class="content">
+        <img src="./images/logo.svg" alt="Sneka Stores Logo" class="logo" />
+
+        <h1>Welcome to Sneka Stores</h1>
+
+        <p>
+          Hello fashion lovers! We're getting ready to launch Sneka Stores – your one-stop shop for fresh, trendy looks.
+          Enter your email to get notified when we go live with amazing launch offers!
+        </p>
+
+        <form class="email-form" novalidate>
+          <input type="email" placeholder="Email Address" required />
+          <button type="submit">Subscribe</button>
+          <p class="error-message" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.querySelector('.email-form');
+    const emailInput = form.querySelector('input[type="email"]');
+    const errorMessage = form.querySelector('.error-message');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = emailInput.value.trim();
+      const pattern = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+
+      if (!email) {
+        errorMessage.textContent = "Email cannot be empty";
+        emailInput.style.borderColor = "hsl(0, 94%, 66%)";
+      } else if (!pattern.test(email)) {
+        errorMessage.textContent = "Please enter a valid email";
+        emailInput.style.borderColor = "hsl(0, 94%, 66%)";
+      } else {
+        errorMessage.textContent = "";
+        alert("Subscribed successfully!");
+        form.reset();
+      }
+    });
+  </script>
+
+</body>
+</html>
